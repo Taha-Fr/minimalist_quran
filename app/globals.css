@@ -1,26 +1,122 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fffbf2;
+  /* Cream/Beige background */
+  --foreground: #1a1a1a;
+  --primary: #d4b572;
+  /* Gold/Bronze */
+  --secondary: #f4ecdc;
+  /* Lighter beige for elements */
+  --mushaf-border: #d4b572;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Dark Mode support */
+.dark {
+  --background: #1a1a1a;
+  --foreground: #f4ecdc;
+  --primary: #d4b572;
+  --secondary: #2d2d2d;
+  --mushaf-border: #8a6d3b;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark .quran-image {
+  filter: invert(1) brightness(1.5) grayscale(1);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.mushaf-page {
+  background-color: var(--background);
+  border: 2px solid var(--mushaf-border);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  position: relative;
+  margin: 1rem auto;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+/* Decorative inner border to mimic the image */
+.mushaf-page::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border: 1px double var(--mushaf-border);
+  pointer-events: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+/* Tajweed Colors */
+.tajweed-ham_wasl {
+  color: #aaaaaa;
+}
+
+.tajweed-silent {
+  color: #aaaaaa;
+}
+
+.tajweed-laam_shamsiyah {
+  color: #aaaaaa;
+}
+
+.tajweed-madda_normal {
+  color: #537fff;
+}
+
+.tajweed-madda_permissible {
+  color: #4050ff;
+}
+
+.tajweed-madda_necessary {
+  color: #000eeb;
+}
+
+.tajweed-madda_obligatory {
+  color: #2144c1;
+}
+
+.tajweed-qalaqah,
+.tajweed-qalqalah {
+  color: #dd0008;
+}
+
+.tajweed-ikhfa_shafawi {
+  color: #D500B7;
+}
+
+.tajweed-ghunnah {
+  color: #ff7e1e;
+}
+
+.tajweed-idgham_wo_ghunnah {
+  color: #959595;
+}
+
+.tajweed-idgham_ghunnah {
+  color: #169200;
+}
+
+.tajweed-ikhafa {
+  color: #94004D;
+}
+
+.tajweed-iqlab {
+  color: #26b2db;
 }
