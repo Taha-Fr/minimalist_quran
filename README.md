@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Minimalist Quran (القرآن الكريم)
+
+A high-performance, offline-first Quran PWA (Progressive Web App) designed for an authentic reading experience.
+
+![Minimalist Quran Header](https://raw.githubusercontent.com/Taha-Fr/minimalist_quran/main/public/icon.png)
+
+## Features
+
+-   **Authentic Madani Mus'haf**: Uses high-quality scanned images of the 15-line Madani Mus'haf (King Fahd Complex).
+-   **100% Offline Capable**: All 604 pages are bundled with the app. No internet connection is required to read after installation.
+-   **Smart Preloading**: Zero-lag page turning. The app intelligently pre-loads upcoming pages for a seamless experience.
+-   **PWA Support**: Installable on Android, iOS, and Desktop.
+-   **Dark Mode**: Optimized dark mode that inverts the page colors for comfortable night reading.
+-   **French Localization**: Surah names and interface in French.
 
 ## Getting Started
 
-First, run the development server:
+### Installation (Android/iOS)
+1.  Visit the deployed URL.
+2.  Tap "Install App" or "Add to Home Screen".
+3.  The app will work completely offline.
+
+### Development
+
+To run locally:
 
 ```bash
+# Install dependencies
+npm install
+
+# Run the project (forced webpack for PWA compatibility)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Building for Production
+```bash
+npm run build
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Credits
+-   **Quran.com API**: For Surah metadata and resources.
+-   **Android Quran (quran.com)**: For the high-quality page images.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+MIT
