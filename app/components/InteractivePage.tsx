@@ -49,42 +49,40 @@ export default function InteractivePage({ pageNum }: InteractivePageProps) {
         if (pageNum > 1) router.push(`/read/${pageNum - 1}`);
     };
 
-    // Click Handler (Left 30% / Right 30%)
-    const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-        const width = e.currentTarget.clientWidth;
-        const x = e.nativeEvent.offsetX;
+    const handleClick = (e: React.MouseEvent) => {
+        const width = window.innerWidth;
+        const x = e.clientX;
 
-        // Left 30% -> Prev
-        if (x < width * 0.3) {
-            goToPrev();
+        // RTL: Right Side (Previous), Left Side (Next)
+        if (x > width * 0.7) {
+            goToPrev(); // Right side click -> Previous Page (RTL)
+        } else if (x < width * 0.3) {
+            goToNext(); // Left side click -> Next Page (RTL)
         }
-        // Right 30% -> Next
-        else if (x > width * 0.7) {
-            goToNext();
-        }
-        // Middle -> Do nothing (or toggle menu later)
     };
 
-    // Touch Handlers
     const handleTouchStart = (e: React.TouchEvent) => {
-        touchStartX.current = e.targetTouches[0].clientX;
+        touchStartX.current = e.touches[0].clientX;
     };
 
     const handleTouchMove = (e: React.TouchEvent) => {
-        touchEndX.current = e.targetTouches[0].clientX;
+        touchEndX.current = e.touches[0].clientX;
     };
 
     const handleTouchEnd = () => {
         if (!touchStartX.current || !touchEndX.current) return;
 
         const diff = touchStartX.current - touchEndX.current;
-        // Threshold for swipe (e.g. 50px)
-        if (diff > 50) {
-            // Swiped Left -> Move Forward (Next Page)
-            goToNext();
-        } else if (diff < -50) {
-            // Swiped Right -> Move Backward (Prev Page)
-            goToPrev();
+        const threshold = 50;
+
+        if (Math.abs(diff) > threshold) {
+            if (diff > 0) {
+                // Swiped Left (Finger moved right-to-left) -> Next Page
+                goToNext();
+            } else {
+                // Swiped Right (Finger moved left-to-right) -> Previous Page
+                goToPrev();
+            }
         }
 
         touchStartX.current = null;
