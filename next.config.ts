@@ -7,17 +7,6 @@ const withPWA = require("next-pwa")({
   skipWaiting: true,
   runtimeCaching: [
     {
-      urlPattern: /^https:\/\/fonts\.(?:gstatic|googleapis)\.com\/.*/i,
-      handler: 'CacheFirst',
-      options: {
-        cacheName: 'google-fonts-webfonts',
-        expiration: {
-          maxEntries: 4,
-          maxAgeSeconds: 365 * 24 * 60 * 60, // 365 days
-        },
-      },
-    },
-    {
       urlPattern: /\/quran-pages\/.*/,
       handler: 'CacheFirst',
       options: {
@@ -28,16 +17,7 @@ const withPWA = require("next-pwa")({
         },
       },
     },
-    {
-      urlPattern: /^https?.*/,
-      handler: 'NetworkFirst',
-      options: {
-        cacheName: 'offlineCache',
-        expiration: {
-          maxEntries: 200,
-        },
-      },
-    },
+    ...require("next-pwa/cache"),
   ],
 });
 
