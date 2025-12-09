@@ -17,6 +17,17 @@ const withPWA = require("next-pwa")({
         },
       },
     },
+    {
+      urlPattern: /^\/(?:$|read\/|surah\/).*/, // Match /, /read/*, /surah/*
+      handler: 'StaleWhileRevalidate',
+      options: {
+        cacheName: 'app-pages-cache',
+        expiration: {
+          maxEntries: 100,
+          maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
+        },
+      },
+    },
     ...require("next-pwa/cache"),
   ],
 });

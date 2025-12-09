@@ -6,12 +6,14 @@ export default function manifest(): MetadataRoute.Manifest {
         short_name: 'Quran',
         description: 'A beautiful Quran application',
         start_url: '/',
+        scope: '/',
         display: 'standalone',
         background_color: '#ffffff',
         theme_color: '#000000',
         orientation: 'portrait',
         id: '/',
         categories: ['books', 'education', 'religion'],
+        prefer_related_applications: true,
         related_applications: [
             {
                 platform: 'play',
