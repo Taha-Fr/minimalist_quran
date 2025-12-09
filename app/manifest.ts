@@ -9,6 +9,9 @@ export default function manifest(): MetadataRoute.Manifest {
         display: 'standalone',
         background_color: '#ffffff',
         theme_color: '#000000',
+        orientation: 'portrait',
+        id: '/',
+        categories: ['books', 'education', 'religion'],
         icons: [
             {
                 src: '/icon-192x192.png',
@@ -18,6 +21,18 @@ export default function manifest(): MetadataRoute.Manifest {
             {
                 src: '/icon-512x512.png',
                 sizes: '512x512',
+                type: 'image/png',
+            },
+        ],
+        screenshots: [
+            {
+                src: '/screenshot-home.png',
+                sizes: '1280x720',
+                type: 'image/png',
+            },
+            {
+                src: '/screenshot-read.png',
+                sizes: '1280x720',
                 type: 'image/png',
             },
         ],
