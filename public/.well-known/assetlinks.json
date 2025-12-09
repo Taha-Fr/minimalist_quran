@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "app.vercel.minimalistquran.twa",
+            "sha256_cert_fingerprints": [
+                "B9:05:15:64:53:C3:D8:C1:FF:47:71:78:D9:83:C7:27:3D:7A:BA:CB:52:F6:2C:78:57:DD:55:79:4E:05:F7:15"
+            ]
+        }
+    }
+]

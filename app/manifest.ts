@@ -12,6 +12,13 @@ export default function manifest(): MetadataRoute.Manifest {
         orientation: 'portrait',
         id: '/',
         categories: ['books', 'education', 'religion'],
+        related_applications: [
+            {
+                platform: 'play',
+                url: 'https://play.google.com/store/apps/details?id=app.vercel.minimalistquran.twa',
+                id: 'app.vercel.minimalistquran.twa',
+            },
+        ],
         icons: [
             {
                 src: '/icon-192x192.png',
