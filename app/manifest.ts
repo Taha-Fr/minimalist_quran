@@ -27,12 +27,12 @@ export default function manifest(): MetadataRoute.Manifest {
         screenshots: [
             {
                 src: '/screenshot-home.png',
-                sizes: '1280x720',
+                sizes: '1920x968',
                 type: 'image/png',
             },
             {
                 src: '/screenshot-read.png',
-                sizes: '1280x720',
+                sizes: '1920x968',
                 type: 'image/png',
             },
         ],
